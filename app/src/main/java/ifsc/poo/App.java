@@ -3,12 +3,101 @@
  */
 package ifsc.poo;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.Random;
+import java.util.Scanner;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        lampada lampada = new lampada();
+        lampada lampada2 = new lampada();
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.println("Para ligar digite: ligar, para desligar: desligar, para ver se esta ligado ou desligado: estado ");
+        if (teclado.nextLine().equals("ligar")) {
+            lampada.ligar();
+        }
+        if (teclado.nextLine().equals("desligar")) {
+            lampada.desligar();
+        }
+
+        System.out.println("Para ligar digite: ligar, para desligar: desligar, para ver se esta ligado ou desligado: estado ");
+        if (teclado.nextLine().equals("ligar")) {
+            lampada2.ligar();
+        }
+        if (teclado.nextLine().equals("desligar")) {
+            lampada2.desligar();
+        }
+
+        System.out.println("Para ver o estado da lampada digite 'estado': ");
+        if (teclado.nextLine().equals("estado")) {
+            System.out.println("Estado da lampada 1: " + lampada.estado);
+        }
+
+        System.out.println();
+
+        System.out.println("Para ver o estado da lampada 2 digite 'estados': ");
+        if (teclado.nextLine().equals("estados")) {
+            System.out.println("Estado da lampada 2: " + lampada2.estado);
+        }
+
+        System.out.println("+-------------------------------------------------------------------------------------------------------------------------+");
+
+        pessoa pessoa = new pessoa();
+        pessoa pessoa2 = new pessoa();
+
+        pessoa.nome = "Alice";
+        pessoa.idade = 22;
+
+        pessoa2.nome = "Bruno";
+        pessoa2.idade = 25;
+
+        System.out.print("Bruno: ");
+        pessoa.felisAniversario();
+        System.out.println();
+        pessoa.felisAniversario();
+        System.out.println();
+        pessoa.felisAniversario();
+
+        System.out.println();
+
+        pessoa.idade = -44;
+
+        pessoa2.nome = "";
+
+        System.out.println("+----------------------------------------------------------------------------------------------------------------------------------+");
+
+        retangulo retangulo = new retangulo();
+
+        retangulo.largura = 5;
+        retangulo.altura = 4;
+
+        System.out.println("Área:" + retangulo.getArea());
+        System.out.println("Perimetro:" + retangulo.getPerimetro());
+
+        String[] retangulos = new String[10];
+        float[] perimetros = new float[10];
+        float[] area = new float[10];
+        Random x = new Random();
+        float maior_razão = 0;
+        float soma_a = 0, soma_p = 0;
+        for (int i = 0; i < 10; i++) {
+            float h = x.nextFloat();
+
+            retangulo.largura = h;
+            h = x.nextFloat();
+            retangulo.altura = h;
+
+            area[i] = retangulo.getArea();
+            soma_a += retangulo.getArea();
+            perimetros[i] = retangulo.getPerimetro();
+            soma_p += retangulo.getPerimetro();
+
+        }
+
+        maior_razão = soma_a/soma_p;
+
+        System.out.println("Maior razão: " + maior_razão);
+
     }
 }
