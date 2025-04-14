@@ -41,7 +41,7 @@ public class App {
             System.out.println("Estado da lampada 2: " + lampada2.estado);
         }
 
-        System.out.println("+-------------------------------------------------------------------------------------------------------------------------+");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
         pessoa pessoa = new pessoa();
         pessoa pessoa2 = new pessoa();
@@ -65,7 +65,7 @@ public class App {
 
         pessoa2.nome = "";
 
-        System.out.println("+----------------------------------------------------------------------------------------------------------------------------------+");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
         retangulo retangulo = new retangulo();
 
@@ -99,7 +99,7 @@ public class App {
 
         System.out.println("Maior razão: " + maior_razão);
 
-        System.out.println("---------------------------------------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
         relogio relogio = new relogio();
 
@@ -115,10 +115,50 @@ public class App {
 
         System.out.println(relogio.getHora());
 
+        System.out.println(relogio.getHoraAMPM());
+
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
+        produto geladeira = new produto();
+        geladeira.nome = "Geladeira";
+        geladeira.preco = 832;
 
+        produto microondas = new produto();
+        microondas.nome = "Microondas";
+        microondas.preco = 499;
 
+        geladeira.setDesconto(6);
+        microondas.setDesconto(12);
 
+        System.out.println(geladeira.getNovoPreco());
+        System.out.println(microondas.getNovoPreco());
+
+        System.out.println("Geladeira: " + geladeira.anuncio());
+        System.out.println("Microondas: " + microondas.anuncio());
+
+        /* Acho que a modelagem é eficiente para a situação abordada, claro que possivelmente se fosse ser aplicado
+           na vida real necessitaria de automatizar a criação dos produtos para que apenas ao colocar o nome já adiciona
+           -se numa tabela hash para que caso fossem alterar algo conseguissem ir direto ao objeto, a chave é o nome do
+           produto e o valor é o preço, depois seria possível acrescentar a função do setDesconto para puxar o valor do
+           produto da tabela e consequentemente fazer depois algum ajuste com interface no Jframe quem sabe né?
+        * */
+
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+
+        livro livro = new livro();
+
+        livro.setNome("O Senhor dos Anéis - A Sociedade do Anel");
+        livro.setAutor("J. R. R. Tolkien");
+        livro.setGeneros("Fantasia, Aventura");
+        livro.setPaginas(464);
+
+        livro.setLer(90);
+        System.out.println("Capítulo atual:" + livro.getCapituloAtual());
+
+        livro.setLer(300);
+        System.out.println("Capítulo atual:" + livro.getCapituloAtual());
+
+        livro.setLer(100);
+        System.out.println("Óh o easter egg aí óh: " + livro.atual);
     }
 }
