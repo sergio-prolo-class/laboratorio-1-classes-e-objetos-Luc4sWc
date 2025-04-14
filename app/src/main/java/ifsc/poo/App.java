@@ -99,5 +99,26 @@ public class App {
 
         System.out.println("Maior razão: " + maior_razão);
 
+        System.out.println("---------------------------------------------------------------------------------------------------------");
+
+        relogio relogio = new relogio();
+
+        relogio.ajustaHora((byte)14,(byte)58,(byte)32);
+        System.out.println(relogio.getHora());
+
+        relogio.avancaMinuto();
+        relogio.avancaMinuto();
+
+        relogio.ajustaHora((byte)23,(byte)59,(byte)59);
+        System.out.println(relogio.getHora());
+        relogio.avancaSegundo();
+
+        System.out.println(relogio.getHora());
+
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+
+
+
+
     }
 }
