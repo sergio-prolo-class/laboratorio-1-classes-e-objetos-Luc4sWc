@@ -1,19 +1,25 @@
 package ifsc.poo;
 
 public class lampada {
-    boolean estado;
+    private static boolean estado;
+    private static int quantidade = 0;
 
-    public void ligar() {
-        estado = true;
-        return;
+    public boolean ligar() {
+        quantidade++;
+        return estado = true;
+
     }
 
-    public void desligar() {
-        estado = false;
-        return;
+    public boolean desligar() {
+        quantidade++;
+        return estado = false;
     }
 
     boolean getEstado() {
         return estado;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
     }
 }

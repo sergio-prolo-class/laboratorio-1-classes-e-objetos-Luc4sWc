@@ -8,157 +8,169 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        lampada lampada = new lampada();
-        lampada lampada2 = new lampada();
+            lampada lampada = new lampada();
+            lampada lampada2 = new lampada();
 
-        Scanner teclado = new Scanner(System.in);
+            Scanner teclado = new Scanner(System.in);
 
-        System.out.println("Para ligar digite: ligar, para desligar: desligar, para ver se esta ligado ou desligado: estado ");
-        if (teclado.nextLine().equals("ligar")) {
-            lampada.ligar();
-        }
-        if (teclado.nextLine().equals("desligar")) {
-            lampada.desligar();
-        }
+            System.out.println("Para ligar digite: ligar, para desligar: desligar: ");
+            if (teclado.nextLine().equals("ligar")) {
+                lampada.ligar();
+            }
+            if (teclado.nextLine().equals("desligar")) {
+                lampada.desligar();
+            }
 
-        System.out.println("Para ligar digite: ligar, para desligar: desligar, para ver se esta ligado ou desligado: estado ");
-        if (teclado.nextLine().equals("ligar")) {
-            lampada2.ligar();
-        }
-        if (teclado.nextLine().equals("desligar")) {
-            lampada2.desligar();
-        }
+            System.out.println("Para ligar digite: ligar, para desligar: desligar: ");
+            if (teclado.nextLine().equals("ligar")) {
+                lampada2.ligar();
+            }
+            if (teclado.nextLine().equals("desligar")) {
+                lampada2.desligar();
+            }
 
-        System.out.println("Para ver o estado da lampada digite 'estado': ");
-        if (teclado.nextLine().equals("estado")) {
-            System.out.println("Estado da lampada 1: " + lampada.estado);
-        }
+            System.out.println("Para ver o estado da lampada digite 'estado': ");
+            if (teclado.nextLine().equals("estado")) {
+                System.out.println("Estado da lampada 1: " + lampada.getEstado());
+            }
 
-        System.out.println();
+            System.out.println();
 
-        System.out.println("Para ver o estado da lampada 2 digite 'estados': ");
-        if (teclado.nextLine().equals("estados")) {
-            System.out.println("Estado da lampada 2: " + lampada2.estado);
-        }
+            System.out.println("Para ver o estado da lampada 2 digite 'estado': ");
+            if (teclado.nextLine().equals("estado")) {
+                System.out.println("Estado da lampada 2: " + lampada2.getEstado());
+            }
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("Quantidade de lâmpadas ligadas: " + lampada.getQuantidade());
 
-        pessoa pessoa = new pessoa();
-        pessoa pessoa2 = new pessoa();
+            System.out.println();
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
-        pessoa.nome = "Alice";
-        pessoa.idade = 22;
+            pessoa pessoa = new pessoa();
+            pessoa pessoa2 = new pessoa();
 
-        pessoa2.nome = "Bruno";
-        pessoa2.idade = 25;
+            pessoa.setNome("Alice");
+            pessoa.setIdade(22);
 
-        System.out.print("Bruno: ");
-        pessoa.felisAniversario();
-        System.out.println();
-        pessoa.felisAniversario();
-        System.out.println();
-        pessoa.felisAniversario();
+            pessoa2.setNome("Bruno");
+            pessoa2.setIdade(25);
 
-        System.out.println();
+            System.out.print("Bruno: ");
+            pessoa.felisAniversario();
+            System.out.println();
+            pessoa.felisAniversario();
+            System.out.println();
+            pessoa.felisAniversario();
 
-        pessoa.idade = -44;
+            System.out.println();
 
-        pessoa2.nome = "";
+            pessoa.setIdade(-44);
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+            pessoa2.setNome("");
 
-        retangulo retangulo = new retangulo();
+            pessoa.setCpf("432.890.674-87");
+            pessoa2.setCpf("");
 
-        retangulo.largura = 5;
-        retangulo.altura = 4;
+            System.out.println("Cpf: " + pessoa.cpf);
+            System.out.println("Cpf: " + pessoa2.cpf);
 
-        System.out.println("Área:" + retangulo.getArea());
-        System.out.println("Perimetro:" + retangulo.getPerimetro());
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
-        String[] retangulos = new String[10];
-        float[] perimetros = new float[10];
-        float[] area = new float[10];
-        Random x = new Random();
-        float maior_razão = 0;
-        float soma_a = 0, soma_p = 0;
-        for (int i = 0; i < 10; i++) {
-            float h = x.nextFloat();
+            retangulo ret = new retangulo();
+            ret.setLargura(5);
+            ret.setAltura(4);
 
-            retangulo.largura = h;
-            h = x.nextFloat();
-            retangulo.altura = h;
+            System.out.println("Área:" + ret.getArea());
+            System.out.println("Perimetro:" + ret.getPerimetro());
 
-            area[i] = retangulo.getArea();
-            soma_a += retangulo.getArea();
-            perimetros[i] = retangulo.getPerimetro();
-            soma_p += retangulo.getPerimetro();
+            String[] retangulos = new String[10];
+            float[] perimetros = new float[10];
+            float[] area = new float[10];
+            Random x = new Random();
+            float maior_razão = 0;
+            float soma_a = 0, soma_p = 0;
+            for (int i = 0; i < 10; i++) {
+                float h = x.nextFloat();
 
-        }
+                ret.setLargura(h);
+                h = x.nextFloat();
+                ret.setAltura(h);
 
-        maior_razão = soma_a/soma_p;
+                area[i] = ret.getArea();
+                soma_a += ret.getArea();
+                perimetros[i] = ret.getPerimetro();
+                soma_p += ret.getPerimetro();
 
-        System.out.println("Maior razão: " + maior_razão);
+            }
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+            maior_razão = soma_a/soma_p;
 
-        relogio relogio = new relogio();
+            System.out.println("Maior razão: " + maior_razão);
 
-        relogio.ajustaHora((byte)14,(byte)58,(byte)32);
-        System.out.println(relogio.getHora());
+            System.out.println("Maior Retângulo: " + retangulo.getMaior_retangulo().getArea());
+            System.out.println("Menor Retângulo: " + retangulo.getMenor_retangulo().getArea());
 
-        relogio.avancaMinuto();
-        relogio.avancaMinuto();
+            System.out.println();
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
-        relogio.ajustaHora((byte)23,(byte)59,(byte)59);
-        System.out.println(relogio.getHora());
-        relogio.avancaSegundo();
+            relogio relogio = new relogio();
 
-        System.out.println(relogio.getHora());
+            relogio.ajustaHora((byte)14,(byte)58,(byte)32);
+            System.out.println(relogio.getHora());
 
-        System.out.println(relogio.getHoraAMPM());
+            relogio.avancaMinuto();
+            relogio.avancaMinuto();
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+            relogio.ajustaHora((byte)23,(byte)59,(byte)59);
+            System.out.println(relogio.getHora());
+            relogio.avancaSegundo();
 
-        produto geladeira = new produto();
-        geladeira.nome = "Geladeira";
-        geladeira.preco = 832;
+            System.out.println(relogio.getHora());
 
-        produto microondas = new produto();
-        microondas.nome = "Microondas";
-        microondas.preco = 499;
+            System.out.println(relogio.getHoraAMPM());
 
-        geladeira.setDesconto(6);
-        microondas.setDesconto(12);
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
-        System.out.println(geladeira.getNovoPreco());
-        System.out.println(microondas.getNovoPreco());
+            produto geladeira = new produto();
+            geladeira.nome = "Geladeira";
+            geladeira.preco = 832;
 
-        System.out.println("Geladeira: " + geladeira.anuncio());
-        System.out.println("Microondas: " + microondas.anuncio());
+            produto microondas = new produto();
+            microondas.nome = "Microondas";
+            microondas.preco = 499;
 
-        /* Acho que a modelagem é eficiente para a situação abordada, claro que possivelmente se fosse ser aplicado
-           na vida real necessitaria de automatizar a criação dos produtos para que apenas ao colocar o nome já adiciona
-           -se numa tabela hash para que caso fossem alterar algo conseguissem ir direto ao objeto, a chave é o nome do
-           produto e o valor é o preço, depois seria possível acrescentar a função do setDesconto para puxar o valor do
-           produto da tabela e consequentemente fazer depois algum ajuste com interface no Jframe quem sabe né?
-        * */
+            geladeira.setDesconto(6);
+            microondas.setDesconto(12);
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println(geladeira.getNovoPreco());
+            System.out.println(microondas.getNovoPreco());
 
-        livro livro = new livro();
+            System.out.println("Geladeira: " + geladeira.anuncio());
+            System.out.println("Microondas: " + microondas.anuncio());
 
-        livro.setNome("O Senhor dos Anéis - A Sociedade do Anel");
-        livro.setAutor("J. R. R. Tolkien");
-        livro.setGeneros("Fantasia, Aventura");
-        livro.setPaginas(464);
+            /* Acho que a modelagem é eficiente para a situação abordada, claro que possivelmente se fosse ser aplicado
+               na vida real necessitaria de automatizar a criação dos produtos para que apenas ao colocar o nome já adiciona
+               -se numa tabela hash para que caso fossem alterar algo conseguissem ir direto ao objeto, a chave é o nome do
+               produto e o valor é o preço, depois seria possível acrescentar a função do setDesconto para puxar o valor do
+               produto da tabela e consequentemente fazer depois algum ajuste com interface no Jframe quem sabe né?
+            * */
 
-        livro.setLer(90);
-        System.out.println("Capítulo atual:" + livro.getCapituloAtual());
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
-        livro.setLer(300);
-        System.out.println("Capítulo atual:" + livro.getCapituloAtual());
+            livro livro = new livro();
 
-        livro.setLer(100);
-        System.out.println("Óh o easter egg aí óh: " + livro.atual);
+            livro.setNome("O Senhor dos Anéis - A Sociedade do Anel");
+            livro.setAutor("J. R. R. Tolkien");
+            livro.setGeneros("Fantasia, Aventura");
+            livro.setPaginas(464);
+
+            livro.setLer(90);
+            System.out.println("Capítulo atual:" + livro.getCapituloAtual());
+
+            livro.setLer(300);
+            System.out.println("Capítulo atual:" + livro.getCapituloAtual());
+
+            livro.setLer(100);
+            System.out.println("Óh o easter egg aí óh: " + livro.atual);
     }
 }
