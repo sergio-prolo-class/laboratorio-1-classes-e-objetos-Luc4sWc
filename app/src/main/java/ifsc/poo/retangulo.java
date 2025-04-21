@@ -9,51 +9,56 @@ public class retangulo {
     private static float menor_retangulo_perimetro;
 
     boolean setLargura(float largura) {
-        if(largura <= 0) {
+        if (largura <= 0) {
             return false;
         }
         this.largura = largura;
         return true;
     }
+
     boolean setAltura(float altura) {
-        if(altura <= 0){
+        if (altura <= 0) {
             return false;
         }
         this.altura = altura;
         return true;
     }
-    float getArea(){
+
+    float getArea() {
         maior_retanguloÁrea();
         return largura * altura;
     }
-    float getPerimetro(){
-        menor_retanguloPerimetro();
-        return (largura + altura) * 2;
+
+    float getPerimetro() {
+        float perimetro = (largura + altura) * 2;
+        menor_retanguloPerimetro(perimetro);
+        return perimetro;
     }
 
-    void maior_retanguloÁrea(){
-        if(this.getArea() > maior_retangulo_area){
-            maior_retangulo_area = this.getArea();
+    void maior_retanguloÁrea() {
+        float area = largura * altura;
+        if (area > maior_retangulo_area) {
+            maior_retangulo_area = area;
             maior_retangulo = this;
         }
     }
-    
-    void menor_retanguloPerimetro(){
-        if(menor_retangulo == null){
+
+    void menor_retanguloPerimetro(float perimetro) {
+        if (menor_retangulo == null || perimetro < menor_retangulo.getPerimetroValue()) {
             menor_retangulo = this;
+            menor_retangulo_perimetro = perimetro;
         }
-        else {
-            if(this.getPerimetro() < menor_retangulo.getPerimetro()){
-                menor_retangulo = this;
-            }
-        }
+    }
+
+    float getPerimetroValue() {
+        return (largura + altura) * 2;
     }
 
     public static retangulo getMaior_retangulo() {
         return maior_retangulo;
     }
+
     public static retangulo getMenor_retangulo() {
         return menor_retangulo;
     }
-    
 }

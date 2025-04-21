@@ -1,11 +1,30 @@
 package ifsc.poo;
 
-public class relogio {
-    byte hora, minuto, segundo;
+import java.text.SimpleDateFormat;
 
-    void ajustaHora(byte hora, byte minuto, byte segundo) {
+public class relogio {
+    private byte hora, minuto, segundo;
+    private static relogio relogio;
+
+    void ajustaHora(byte hora) {
+        if(hora > 23 || hora < 0){
+            this.hora = 0;
+            return;
+        }
         this.hora = hora;
+    }
+    void ajustaMinuto(byte minuto) {
+        if(minuto > 59 || minuto < 0){
+            this.minuto = 0;
+            return;
+        }
         this.minuto = minuto;
+    }
+    void ajustaSegundo(byte segundo) {
+        if(segundo > 59 || segundo < 0){
+            this.segundo = 0;
+            return;
+        }
         this.segundo = segundo;
     }
 
@@ -80,5 +99,26 @@ public class relogio {
 
     String getHoraAMPM() {
         return String.format("%02dam %02dm %02ds\n", this.hora, this.minuto,this.segundo);
+    }
+
+    void Sincroniza(relogio outroRelogio){
+        this.hora = outroRelogio.hora;
+        this.minuto = outroRelogio.minuto;
+        this.segundo = outroRelogio.segundo;
+    }
+
+    int Diferenca(relogio a, relogio b){
+        int hora_a = a.hora;
+        int hora_b = b.hora;
+        int diferenca;
+
+        if(hora_a > hora_b){
+            diferenca = (hora_a - hora_b) * 3600;
+        }
+        else{
+           diferenca = (hora_b - hora_a) * 3600;
+        }
+
+        return diferenca;
     }
 }
